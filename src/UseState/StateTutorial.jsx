@@ -1,27 +1,23 @@
 import React from "react";
 
 const StateTutorial = () => {
-  const [count, setCount] = React.useState(0);
-  const countUpdate = (event) => {
-    const { name } = event.target;
-    setCount((prevCount) =>
-      name === "Increment" ? prevCount + 1 : prevCount - 1
-    );
+  const [inputValue, setInputValue] = React.useState(0);
+
+  const handleChange = (event) => {
+    const { value } = event.target;
+    console.log(value);
+    setInputValue(value);
   };
+
   return (
     <>
       <div>
-        <span>
-          <button name="increment" onClick={countUpdate}>
-            Increment
-          </button>
-        </span>
-        <span>{" " + count + " "}</span>
-        <span>
-          <button name="decrement" onClick={countUpdate}>
-            Decrement
-          </button>
-        </span>
+        <input
+          type="text"
+          placeHolder="Enter Something.."
+          onChange={handleChange}
+          value={inputValue}
+        />
       </div>
     </>
   );
